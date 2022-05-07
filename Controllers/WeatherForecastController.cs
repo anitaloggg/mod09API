@@ -43,8 +43,12 @@ namespace mod09API.Controllers
                 return NotFound();
             return Summaries[id];
         }
-
-        [HttpGet("bydate/{year}/{month}/{day}")]
+        [HttpGet("byname/{name}")]
+        public ActionResult<string> Get(string name)
+        {
+            return name;
+        }
+        [HttpGet("{year}/{month}/{day}")]
         public ActionResult<string> Get(int year, int month, int day)
         {
             return (new DateTime(year, month, day)).ToString();
