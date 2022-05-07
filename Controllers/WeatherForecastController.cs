@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace mod09API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("wf")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -35,5 +35,21 @@ namespace mod09API.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<string> Get(int id)
+        {
+            if (id >= Summaries.Length)
+                return NotFound();
+            return Summaries[id];
+        }
+
+        [HttpGet("bydate/{year}/{month}/{day}")]
+        public ActionResult<string> Get(int year, int month, int day)
+        {
+            return (new DateTime(year, month, day)).ToString();
+        }
+
+
     }
 }
