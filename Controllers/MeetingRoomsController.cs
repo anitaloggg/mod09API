@@ -50,16 +50,44 @@ namespace mod09API.Controllers
         }
 
 
-        // PUT api/<MeetingRoomsController>/5
+        // PUT <MeetingRoomsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutMeetingRoom(int id, MeetingRoom meetingRoom)
         {
+            if (id != meetingRoom.ID) return BadRequest();
+            _context.Entry(meetingRoom).State = EntityState.Modified;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!MeetingRoomExists(id)) return NotFound();
+                else throw;
+            }
+            return NoContent();
+        }
+        private bool MeetingRoomExists(int id)
+        {
+            return _context.MeetingRooms.Any(e => e.ID == id);
         }
 
-        // DELETE api/<MeetingRoomsController>/5
+
+        // DELETE <MeetingRoomsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<MeetingRoom>> DeleteMeetingRoom(int id)
         {
+            var meetingRoom = await _context.MeetingRooms.FindAsync(id);
+            if (meetingRoom == null)
+            {
+                return NotFound();
+            }
+
+            _context.MeetingRooms.Remove(meetingRoom);
+            await _context.SaveChangesAsync();
+
+            return meetingRoom;
         }
+
     }
 }
