@@ -39,12 +39,16 @@ namespace mod09API.Controllers
             return meetingRoom;
         }
 
-
-        // POST api/<MeetingRoomsController>
+        // POST: api/MeetingRooms 
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<MeetingRoom>> PostMeetingRoom(MeetingRoom meetingRoom)
         {
+            _context.MeetingRooms.Add(meetingRoom);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetMeetingRoom", new { id = meetingRoom.ID }, meetingRoom);
         }
+
 
         // PUT api/<MeetingRoomsController>/5
         [HttpPut("{id}")]
