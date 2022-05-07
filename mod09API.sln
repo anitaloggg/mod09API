@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mod09API", "mod09API.csproj", "{11ED9110-836B-44DB-8AE5-7FDE307BE071}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11ED9110-836B-44DB-8AE5-7FDE307BE071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11ED9110-836B-44DB-8AE5-7FDE307BE071}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11ED9110-836B-44DB-8AE5-7FDE307BE071}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11ED9110-836B-44DB-8AE5-7FDE307BE071}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {993A2931-ADF7-4A9D-ADF4-6571DBAE5696}
+	EndGlobalSection
+EndGlobal
