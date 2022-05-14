@@ -31,6 +31,7 @@ namespace mod09API
             services.AddDbContext<MeetingRoomContext>(
                   options => options.UseSqlServer(
                     Configuration.GetConnectionString("DevConnection")));
+            services.AddCors();
 
         }
 
@@ -41,6 +42,10 @@ namespace mod09API
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors(options =>
+             options.WithOrigins("http://localhost:4200")
+             .AllowAnyMethod()
+             .AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
