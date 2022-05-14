@@ -42,8 +42,10 @@ namespace mod09API
             {
                 app.UseDeveloperExceptionPage();
             }
+            var allowCors = Configuration["AppConfig:Cors"].Split(",");
+
             app.UseCors(options =>
-             options.WithOrigins("http://localhost:4200")
+             options.WithOrigins(allowCors)
              .AllowAnyMethod()
              .AllowAnyHeader());
 
